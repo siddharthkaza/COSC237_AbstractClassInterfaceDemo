@@ -11,6 +11,7 @@ package edu.towson.cosc237;
  */
 public class Person {
     private String firstName;
+    private Date birthDate;
 
     /**
      * @return the name
@@ -26,5 +27,12 @@ public class Person {
         this.firstName = name;
     }
     
+    @Override
+    public Person clone() throws CloneNotSupportedException {
+        Person copy = (Person) super.clone();
+        copy.birthDate = (Date) birthDate.clone();
+        copy.firstName = firstName;
+        return copy;        
+    }
     
 }
